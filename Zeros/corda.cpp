@@ -13,15 +13,15 @@ float f(float x){
 
 void biss(float a, float b, unsigned int ite){
 	
-	float m;
+	float x;
 	
 	for(unsigned int i = 0; i < ite; i++){
-		m = (a + b) / 2;
-		cout << "a: " << setw(15) << a << " | b: " << setw(15) << b << " | m: " << setw(15) << m << endl; 
-		if(f(m) * f(a) < 0){
-			b = m;
+		x = (a*f(b) - b*f(a)) / (f(b) - f(a));
+		cout << "a: " << setw(15) << a << " | b: " << setw(15) << b << " | x: " << setw(15) << x << endl; 
+		if(f(x) * f(a) > 0){
+			a = x;
 		}else{
-			a = m;
+			b = x;
 		}
 	}
 	
@@ -31,7 +31,7 @@ int main(){
 	cout << fixed << setprecision(9);
 	
 	float a = 0;
-	float b = 12;
+	float b = 1;
 	float ite = 100;
 	
 	
