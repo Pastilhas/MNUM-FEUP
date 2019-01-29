@@ -1,5 +1,5 @@
 /*
-	Calculate solution for 3 variable, 3 equation system using gauss method
+	Calculate solution for 3 variable, 3 equation system using gauss-jordan method
 */
 
 #include <iostream>
