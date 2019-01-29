@@ -11,7 +11,7 @@ float f(float x){
 	return x*x*x*x + 2*x*x*x - x - 1;
 }
 
-void biss(float a, float b, unsigned int ite){
+void cord(float a, float b, unsigned int ite){
 	
 	float x;
 	
@@ -32,9 +32,9 @@ int main(){
 	
 	float a = 0;
 	float b = 1;
-	float ite = 100;
+	unsigned int ite = 100;
 	
 	
-	biss(a, b, ite);
+	cord(a, b, ite);
 	return 0;
 }

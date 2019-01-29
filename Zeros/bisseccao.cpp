@@ -32,7 +32,7 @@ int main(){
 	
 	float a = 0;
 	float b = 12;
-	float ite = 100;
+	unsigned int ite = 100;
 	
 	
 	biss(a, b, ite);
