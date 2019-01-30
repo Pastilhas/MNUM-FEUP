@@ -9,7 +9,7 @@
 using namespace std;
 
 float f(float x, float y){
-	return (x*x - 4*x + 3.5);
+	return (x*y);
 }
 
 float simp(float a, float b, float y, unsigned int ite){
@@ -30,27 +30,21 @@ float simp(float a, float b, float y, unsigned int ite){
 }
 
 float cuba(float x0, float x, float y0, float y, unsigned int ite){
-	vector<float> a;
 	float h = (y-y0)/ite;
 	float sum1 = 0;
 	float sum2 = 0;
 	
-	a.push_back(simp(x0, x, y0, ite));
-	for(unsigned int i = 1; i < ite; i++){
-		a.push_back(simp(x0, x, y0 + i*h, ite));
-	}
-	a.push_back(simp(x0, x, y, ite));
 	
-	for(unsigned int i = 1; i < ite; i+=2){
-		sum1 += a[i];
-	}
-	for(unsigned int i = 2; i < ite; i+=2){
-		sum2 += a[i];
+	for(unsigned int i = 1; i < ite; i++){
+		if(i%2)
+			sum1 += simp(x0, x, y0 + i*h, ite);
+		else
+			sum2 += simp(x0, x, y0 + i*h, ite);
 	}
 	
 	sum1 *= 4;
 	sum2 *= 2;
-	sum1 = a[0] + sum1 + sum2 + a[a.size() - 1];
+	sum1 = simp(x0, x, y0, ite) + sum1 + sum2 + simp(x0, x, y, ite);
 	return ((h/3.0f)*sum1);
 }
 
